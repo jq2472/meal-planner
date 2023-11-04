@@ -6,10 +6,16 @@ body {
     min-height: 1080px;
     margin: 0;
     font-family: 'Rubik', sans-serif;
+    
     background-size: cover;
+    background-color: orange;
 }
 
 .card {
+    background-color: white;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: black;
     display: flex;
     justify-content: center;
     padding: 1.5em;
@@ -24,11 +30,9 @@ body {
 button {
     margin: .5em;
     border-radius: 50%;
-
     align-self: center;
     height: 30px;
     width: 30px;
-
     transition: 0.2s ease-in-out;
     text-shadow: 2px 0 #ffffff, -2px 0 #ffffff, 0 2px #ffffff, 0 -2px #ffffff,
     1px 1px #ffffff, -1px -1px #ffffff, 1px -1px #ffffff, -1px 1px #ffffff;
@@ -38,7 +42,10 @@ button {
     justify-content: center;
     align-items: center;
 }
-
+.search-bar{
+    border-style: solid;
+    border-color: black;
+}
 #search-button{
     text-align: center;
     max-height: 30px;
@@ -69,4 +76,23 @@ input.search-bar {
     text-shadow: none;
     color: rgb(255, 255, 255);
     opacity: 1; /* Firefox */
+}
+
+#showcase{
+    border-radius: 24px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#needs{
+    padding: 10px;
+}
+.ingredients{
+    max-width: 40em;
+}
+li{
+    display: inline-block;
+    border: 1px solid #FF4F1F;
+    margin: 5px;
+    padding: 10px;
 }
