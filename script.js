@@ -1,87 +1,63 @@
 let recommendations = {
-    fetchRecommendations: async function (val) {
-        const foodElement = document.querySelector(".food");
-        foodElement.textContent = val;
-        
-        try {
-          const response = await fetch(
-            `https://www.themealdb.com/api/json/v1/1/search.php?s=${val}`
-          );
-    
-          if (!response.ok) {
-            alert("No Meals found.");
-            throw new Error("No Meals found.");
-          }
-    
-          const data = await response.json();
-          return data.meals;
-        } catch (error) {
-          // Handle any errors here
-          console.error(error);
-          return null; // You can return an empty array or handle the error as needed
-        }
+    fetchRecommendations: function (val) {
+        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + val)
+            .then((response) => {
+                if (!response.ok) {
+                    alert("No data found.");
+                    throw new Error("No data found.");
+                }
+                return response.json();
+            })
+            .then((data) => this.display(data.meals[0]));
     },
 
-    displayRecommendations: function (data) {
-
-        const input = document.querySelector(".search-bar");
-        const title = document.querySelector(".food");
-        const img = document.querySelector(".showcase");
-        const ingred = document.querySelector(".ingredients");
-
+    display: function (meal) {
         const { strMeal, strMealThumb, strInstructions } = meal;
-        title.textContent = strMeal;
-        img.style.backgroundImage = `url(${strMealThumb})`;
-        info.textContent = strInstructions;
 
-        const ingredients = [];
-  
+        const foodElement = document.querySelector(".food");
+        const imgElement = document.querySelector("#showcase"); // Changed selector to use ID
+        imgElement.src = strMealThumb; // Use .src to set the image source
+        
+        const instructionsElement = document.querySelector(".instructions");
+
+        foodElement.textContent = strMeal;
+        instructionsElement.textContent = strInstructions;
+
+        // Displaying ingredients and measures
+        const ingredientsList = document.querySelector(".ingredients-list");
+        ingredientsList.innerHTML = ""; // Clear the previous list
+
         for (let i = 1; i <= 20; i++) {
-            if (meal[`strIngredient${i}`]) {
-                ingredients.push(
-                `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
-                );
+            const ingredient = meal[`strIngredient${i}`];
+            const measure = meal[`strMeasure${i}`];
+
+            if (ingredient && ingredient.trim() !== "") {
+                const ingredientItem = document.createElement("li");
+                ingredientItem.textContent = `${ingredient} - ${measure}`;
+                ingredientsList.appendChild(ingredientItem);
             } else {
                 break;
             }
-      }
-
-      const html = `
-        <span>${ingredients
-        .map((ing) => `<li class="ing">${ing}</li>`)
-        .join("")}</span>
-      `;
+        }
     },
 
-    //getting recs
+    // Getting recommendations
     search: function (food) {
         this.fetchRecommendations(food);
     },
-  };
-  
-  //user input
-  document.querySelector(".search-button").addEventListener("click", function () {
+};
+
+// User input
+document.querySelector(".search-button").addEventListener("click", function () {
     const searchBar = document.querySelector(".search-bar");
     recommendations.search(searchBar.value);
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     const searchBar = document.querySelector(".search-bar");
     searchBar.addEventListener("keyup", function (event) {
-      if (event.key === "Enter") {
-        recommendations.search(searchBar.value);
-      }
+        if (event.key === "Enter") {
+            recommendations.search(searchBar.value);
+        }
     });
-  });
-
-  
-  document
-    .querySelector(".search-bar")
-    .addEventListener("keyup", function (event) {
-      if (event.key == "Enter") {
-        recommendations.search();
-      }
-    });
-  
-    //test
-    recommendations.fetchRecommendations("Chicken");
+});
