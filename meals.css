@@ -36,6 +36,7 @@ button {
     height: 30px;
     width: 30px;
     transition: 0.2s ease-in-out;
+    background: #ffcf5ec6;
     text-shadow: 2px 0 #ffffff, -2px 0 #ffffff, 0 2px #ffffff, 0 -2px #ffffff,
     1px 1px #ffffff, -1px -1px #ffffff, 1px -1px #ffffff, -1px 1px #ffffff;
 }
@@ -63,17 +64,19 @@ button {
 
 input.search-bar {
     color: rgb(0, 0, 0);
-    border: none;
+    border: black;
+    border-width: 2px;
     padding: .5em 1em;
     border-radius: 24px;
-    background: #72707084;
+    border-style: solid;
+    background: #ffcf5ec6;
     font-size: 120%;
     width: calc(100% - 100px);
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     text-shadow: none;
-    color: rgb(255, 255, 255);
+    color: rgba(94, 27, 27, 0.549);
     opacity: 1; /* Firefox */
 }
 #image-showcase{
