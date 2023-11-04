@@ -12,6 +12,7 @@ body {
 }
 
 .card {
+    overflow: hidden;
     background-color: white;
     border-radius: 30px;
     border-style: solid;
@@ -39,6 +40,7 @@ button {
 }
 
 .recommendation {
+    
     justify-content: center;
     align-items: center;
 }
