@@ -2,10 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="meals.css">
+    <title>Meal Planner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="meals.css">
+    <script defer src="meals.js"></script>
 </head>
+
 <body>
-    
+    <div class="card">
+        <button id="back" class="navigation"> &lt; </button>
+        <div class="stats">
+            <div class="search">
+                <input type="text" class="search-bar" placeholder="Search for a meal"> 
+                <button class="search-button"> 
+                    <img src=/images/search-white.png width="15" height="15">
+                </button>
+            </div>
+                    <div class="recommendation">
+                        <h1 class="food"> honey bbq </h2>
+                        <h3 class="tastes"> sweet, savory; </h1>
+                            <div class="ingredients">
+                                 <h2 class="title"> Ingredients: </h2>
+                                 <h3 class="ingredients"> a, b </h3>
+                            </div>
+                        <div class="all-header">
+                            <h4 class="title"> Common Allergens: </h4>
+                            <h5 class="allergens"> peanuts </h5>
+                        </div>
+                    </div>
+        </div>
+        <button id="forward" class="navigation"> &gt; </button>
+
+     </div>
+
+     
 </body>
 </html>
