@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
     background-size: cover;
-    background-color: orange;
+    background-color: #e35e24;
 }
 
 .card {
@@ -15,6 +15,8 @@ body {
     background-color: white;
     border-radius: 30px;
     border-style: solid;
+    box-shadow: 10px 8px 20px rgb(78, 46, 8);
+    border-width: 2px;
     border-color: black;
     display: flex;
     justify-content: center;
@@ -46,21 +48,17 @@ button {
 .search-bar{
     border-style: solid;
     border-color: black;
+    color: rgb(0, 0, 0);
 }
 #search-button{
     text-align: center;
     max-height: 30px;
 }
-
 .search {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 500px;
-}
-
-.search-bar {
-    color: rgb(0, 0, 0);
 }
 
 input.search-bar {
@@ -78,11 +76,17 @@ input.search-bar {
     color: rgb(255, 255, 255);
     opacity: 1; /* Firefox */
 }
+#image-showcase{
+    max-width: 100%;
+    max-height: 100%;
+}
 
 #showcase{
     border-radius: 24px;
     border-style: solid;
-    border-width: 2px;
+    border-width: .15em;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #needs{
@@ -93,7 +97,16 @@ input.search-bar {
 }
 li{
     display: inline-block;
-    border: 1px solid #FF4F1F;
+    border: 1px solid #e35e24;
     margin: 5px;
     padding: 10px;
 }
+li:on-click{
+    text-decoration: line-through;
+
+}
+@media only screen and (max-width: 600px) {
+    li{
+      font-size: .8em;
+    }
+  }
