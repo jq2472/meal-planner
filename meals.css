@@ -92,21 +92,35 @@ input.search-bar {
 #needs{
     padding: 10px;
 }
+
 .ingredients{
     max-width: 40em;
 }
+
 li{
     display: inline-block;
     border: 1px solid #e35e24;
     margin: 5px;
     padding: 10px;
 }
+
 li:on-click{
     text-decoration: line-through;
 
 }
+
+a#tutorial {
+    color: rgb(0, 0, 0);
+}
+
 @media only screen and (max-width: 600px) {
     li{
       font-size: .8em;
     }
   }
+
+.recommendation.loading {
+    visibility: hidden;
+    max-height: 10px;
+    position: absolute;
+}

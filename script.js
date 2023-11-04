@@ -12,25 +12,27 @@ let recommendations = {
     },
 
     display: function (meal) {
-        const { strMeal, strMealThumb, strInstructions } = meal;
+         //unhide weather display
+         document.querySelector(".recommendation").classList.remove("loading");
+
+        const { strMeal, strMealThumb, strYoutube } = meal;
 
         const foodElement = document.querySelector(".food");
         const imgElement = document.querySelector("#showcase"); // Changed selector to use ID
         imgElement.src = strMealThumb; // Use .src to set the image source
         
-        const instructionsElement = document.querySelector(".instructions");
+        const linkElement = document.querySelector("a#tutorial");
 
         foodElement.textContent = strMeal;
-        instructionsElement.textContent = strInstructions;
+        linkElement.textContent = strYoutube;
 
         // Displaying ingredients and measures
-        const ingredientsList = document.querySelector(".ingredients-list");
+        const ingredientsList = document.querySelector(".needs");
         ingredientsList.innerHTML = ""; // Clear the previous list
 
         for (let i = 1; i <= 20; i++) {
             const ingredient = meal[`strIngredient${i}`];
             const measure = meal[`strMeasure${i}`];
-
             if (ingredient && ingredient.trim() !== "") {
                 const ingredientItem = document.createElement("li");
                 ingredientItem.textContent = `${ingredient} - ${measure}`;
@@ -61,3 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+recommendations.search(pizza);
