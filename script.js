@@ -14,36 +14,41 @@ let recommendations = {
     // Function to update the ingredients list
     updateIngredientsList: function (ingredientsList, meal) {
         ingredientsList.innerHTML = ""; // Clear the previous list
-    
+
         for (let i = 1; i <= 20; i++) {
-          const ingredient = meal[`strIngredient${i}`];
-          const measure = meal[`strMeasure${i}`];
-          if (ingredient && ingredient.trim() !== "") {
-            const ingredientItem = document.createElement("li");
-            ingredientItem.textContent = `${ingredient} - ${measure}`;
-            ingredientsList.appendChild(ingredientItem);
-          } else {
-            break;
-          }
+            const ingredient = meal[`strIngredient${i}`];
+            const measure = meal[`strMeasure${i}`];
+            if (ingredient && ingredient.trim() !== "") {
+                const ingredientItem = document.createElement("li");
+                ingredientItem.textContent = `${ingredient} - ${measure}`;
+                ingredientsList.appendChild(ingredientItem);
+
+                // Add a click event listener to the ingredientItem
+                ingredientItem.addEventListener("click", function () {
+                    ingredientItem.classList.toggle("strikethrough");
+                });
+            } else {
+                break;
+            }
         }
-      },
-    
-      display: function (meal) {
+    },
+
+    display: function (meal) {
         // Unhide recommendation display
         document.querySelector(".recommendation").classList.remove("loading");
-    
+
         const { strMeal, strMealThumb, strYoutube } = meal;
-    
+
         const foodElement = document.querySelector(".food");
         const imgElement = document.querySelector("#showcase"); // Changed selector to use ID
         imgElement.src = strMealThumb; // Use .src to set the image source
-    
+
         const linkElement = document.querySelector("a#tutorial");
         linkElement.href = strYoutube; // Set the href attribute to the YouTube link
         linkElement.textContent = "Watch on YouTube"; // Change the link text if needed
-    
+
         foodElement.textContent = strMeal;
-    
+
         const ingredientsList = document.getElementById("needs"); // Use getElementById to select by ID
         // Displaying ingredients and measures
         this.updateIngredientsList(ingredientsList, meal);
@@ -69,5 +74,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-recommendations.search(pizza);

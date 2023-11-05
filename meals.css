@@ -151,7 +151,7 @@ a#tutorial {
       font-size: .8em;
     }
   }
-
+  
 @media only screen and (max-width: 900px) {
     .food {
         transition: 0.25s ease-in-out;
