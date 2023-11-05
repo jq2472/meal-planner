@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
     background-size: cover;
-    background-color: #e35e24;
+    background-image: url(https://i.redd.it/cyqz66gt1mh01.jpg);
 }
 
 .card {
@@ -27,6 +27,7 @@ body {
     padding: 1.5em;
     justify-content: center;
     min-width: 100px;
+    max-height: 100%;
 }
 
 button {
@@ -74,7 +75,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 500px;
+    min-width: 100%;
 }
 
 input.search-bar {
