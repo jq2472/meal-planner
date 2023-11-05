@@ -6,13 +6,14 @@ body {
     min-height: 1080px;
     margin: 0;
     font-family: 'Rubik', sans-serif;
-    background-size: cover;
+    background-size: fit-content;
     background-image: url(https://i.redd.it/eyfqrflgtnh01.jpg);
 }
 
 .card {
     margin: 1.5em;
     max-height: fit-content;
+    max-width: 50%;
     background-color: white;
     border-radius: 30px;
     border-style: solid;
@@ -109,7 +110,7 @@ input.search-bar:hover {
 }
 
 img#showcase {
-    max-height: 500px;
+    max-height: 400px;
 }
 
 #showcase{
@@ -125,7 +126,7 @@ img#showcase {
 }
 
 .ingredients{
-    max-width: 30em;
+    max-width: 27em;
 }
 
 li{
@@ -133,6 +134,7 @@ li{
     border: 1px solid #e35e24;
     margin: 5px;
     padding: 10px;
+    font-size: .8em;
 }
 
 li:on-click{
