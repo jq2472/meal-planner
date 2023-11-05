@@ -36,9 +36,9 @@ let recommendations = {
     display: function (meal) {
         // Unhide recommendation display
         document.querySelector(".recommendation").classList.remove("loading");
-
-        const { strMeal, strMealThumb, strYoutube } = meal;
-
+    
+        const { strMeal, strMealThumb, strYoutube, strInstructions } = meal;
+    
         const foodElement = document.querySelector(".food");
         const imgElement = document.querySelector("#showcase"); // Changed selector to use ID
         imgElement.src = strMealThumb; // Use .src to set the image source
@@ -48,10 +48,17 @@ let recommendations = {
         linkElement.textContent = "Watch on YouTube"; // Change the link text if needed
 
         foodElement.textContent = strMeal;
-
-        const ingredientsList = document.getElementById("needs"); // Use getElementById to select by ID
+    
         // Displaying ingredients and measures
+        const ingredientsList = document.getElementById("needs"); // Use getElementById to select by ID
         this.updateIngredientsList(ingredientsList, meal);
+
+        //preparation instructions
+        document.querySelector("button#forward.navigation").addEventListener("click", function () {
+            document.querySelector(".card2").classList.remove("idle");
+        });
+        const instructions = document.querySelector(".card2 .body");
+        instructions.textContent = strInstructions;
     },
 
     // Getting recommendations
@@ -74,3 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.querySelector("button#back.navigation").addEventListener("click", function () {
+    document.querySelector(".card2").classList.add("idle");
+});
+
+
+
+
+
