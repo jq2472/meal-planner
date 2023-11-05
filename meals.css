@@ -138,6 +138,9 @@ li:on-click{
     text-decoration: line-through;
 
 }
+li.strikethrough {
+    text-decoration: line-through;
+}
 
 a#tutorial {
     color: rgb(0, 0, 0);
