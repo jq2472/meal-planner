@@ -33,19 +33,34 @@ button {
     margin: .5em;
     border-radius: 50%;
     align-self: center;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     transition: 0.2s ease-in-out;
     background: #ffcf5ec6;
     text-shadow: 2px 0 #ffffff, -2px 0 #ffffff, 0 2px #ffffff, 0 -2px #ffffff,
     1px 1px #ffffff, -1px -1px #ffffff, 1px -1px #ffffff, -1px 1px #ffffff;
 }
 
-.recommendation {
-    
+button:hover {
+    background: #2c2e2f9b;
+}
+
+.recommendation.loading {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
+
+.recommendation {
+    max-height: 1000px;
+    visibility: visible;
+    transition: max-height 0.5s ease; 
+}
+
 .search-bar{
     border-style: solid;
     border-color: black;
@@ -72,6 +87,12 @@ input.search-bar {
     background: #ffcf5ec6;
     font-size: 120%;
     width: calc(100% - 100px);
+}
+
+input.search-bar:hover {
+    transition: 0.2s ease-in-out;
+    color: rgb(255, 255, 255);
+    background: #2c2e2f9b;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -121,9 +142,3 @@ a#tutorial {
       font-size: .8em;
     }
   }
-
-.recommendation.loading {
-    visibility: hidden;
-    max-height: 10px;
-    position: absolute;
-}
