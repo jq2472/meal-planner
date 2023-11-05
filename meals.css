@@ -11,6 +11,7 @@ body {
 }
 
 .card {
+    margin: 1.5em;
     max-height: fit-content;
     background-color: white;
     border-radius: 30px;
@@ -154,4 +155,36 @@ a#tutorial {
         transition: 0.25s ease-in-out;
         font-size: 1.5em;
     }
+}
+
+/**
+after arrow click
+**/
+.card2 {
+    max-height: fit-content;
+    background-color: white;
+    border-radius: 30px;
+    border-style: solid;
+    box-shadow: 10px 8px 20px rgb(78, 46, 8);
+    border-width: 2px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    margin: 1.5em;
+    padding: 5%;
+    align-content: flex-start; 
+    flex-direction: column;
+    max-height: 30%;
+    max-width: 20%;
+}
+
+.idle.card2 {
+    overflow: hidden;
+    visibility: hidden;
+    max-height: 10px;
+    position: absolute;
+}
+
+.body {
+    font-size: small;
 }
